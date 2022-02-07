@@ -1,0 +1,42 @@
+<!doctype html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<form id="form">
+    <p><input type="text" name="answer" id="line"></p>
+    <p><input type="submit"></p>
+  </form>
+  
+<div>
+    <ul id="list">
+
+    </ul>
+</div>
+
+<script>
+    $("#form").submit(function (event) {
+        event.preventDefault();
+        var task = $("#line").val();
+        $("#list").append("<li>" 
+            + "<input type='button' value='✓' class='mark-btn'>"
+            + "<input type='button' value='❌' class='delete-btn'>"
+            + "    " + task
+            + "</li>");
+    });
+
+    $("#list").on("click", ".mark-btn", function () {
+        if ($(this).parent().css('textDecoration').includes('line-through')) {
+            $(this).parent().css('textDecoration', 'none');
+        } else {
+            $(this).parent().css('textDecoration', 'line-through');
+        }
+    });
+
+    $("#list").on("click", ".delete-btn", function () {
+        $(this).parent().remove();
+    });
+
+</script>
+</body>
+</html>

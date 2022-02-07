@@ -1,0 +1,35 @@
+<!doctype html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<nav>
+    <a href="#" onclick="loadCompanyPage()">О компании</a>
+    <a href="#" onclick="loadTechPage()">Технологии</a> |
+    <a href="#" onclick="loadJobsPage()">Вакансии</a> |
+</nav>
+<section id="content"></section>
+
+<script>
+    var content = document.getElementById('content');
+
+    function loadCompanyPage() {
+        const state = { 'page_id': 1 }
+        const title = 'Company'
+        const url = 'index.html'
+
+        history.pushState(state, title, url)
+        content.innerHTML = "Company";  
+            
+   }
+
+   function loadTechPage() {
+        content.innerHTML = "Techs";   
+   }
+
+   function loadJobsPage() {
+        content.innerHTML = "Jobs";
+   }
+</script>
+</body>
+</html>

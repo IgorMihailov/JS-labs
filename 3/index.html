@@ -1,0 +1,22 @@
+<!doctype html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<div>
+    <audio id="audio" controls></audio>
+    <br>
+    <input type="file" id="file" accept=".mp3">
+</div>
+<script>
+
+document.getElementById('file').addEventListener('change', function(event){
+
+        var file = this.files[0];
+        var fileURL = URL.createObjectURL(file);
+        document.getElementById('audio').src = fileURL;
+
+});
+</script>
+</body>
+</html>
